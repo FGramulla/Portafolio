@@ -147,43 +147,38 @@ header .title .name span {
 .modal {
     display: none;
     position: fixed; 
+    width: 20%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: white;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    background-color: rgb(143, 143, 143);
     padding: 20px;
     z-index: 2000;
 }
 
-.modal-content {
-    background-color: #fefefe;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    display: flex;
-    align-items: center;
-}
-
-.modal-content .image {
-    flex: 1;
-}
-
 .modal-content .buttons {
-    flex: 2;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
 .modal-content .buttons button {
+    border-radius: 15px;
+    color: #000000;
     padding: 10px;
     font-size: 16px;
+    transition: 0.5s ease-in-out;
+}
+
+.modal-content .buttons button:hover{
+    border-color: #00ff9d;
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 .close {
-    color: #aaa;
+    margin-left: 10%;
+    color: #000000;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -191,7 +186,7 @@ header .title .name span {
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: rgb(255, 0, 0);
     text-decoration: none;
     cursor: pointer;
 }
@@ -440,7 +435,8 @@ main {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s ease, transform 0.3s ease;}
+    transition: 0.3s ease
+}
 
 .linkedin-button:hover {
     background-color: #005582;
