@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <title>Mi Portafolio</title>
+    <script src="/script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="title">
+            <h3 class="name">Franco David Gramulla Bridarolli</h3>
+        </div>
+        <nav class="navbar">
+            <div class="menu">
+                <a href="#">Home</a>
+                <a href="#">About me</a>
+                <a href="#">Skills</a>
+                <a href="#" id="contactsBtn">Contacts</a>
+                <div class="dropdown">
+                    <button class="dropbtn">More 
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#">Enlace 1</a>
+                        <a href="#">Enlace 2</a>
+                        <a href="#">Enlace 3</a>
+                    </div>
+                </div> 
+            </div>
+        </nav>
+        <!-- Modal contacts -->
+        <div id="contactsModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="image">
+                    <img src="your-image-url.jpg" alt="Image" style="width:100%;">
+                </div>
+                <div class="buttons">
+                    <button>Button 1</button>
+                    <button>Button 2</button>
+                    <button>Button 3</button>
+                </div>
+            </div>
+        </div>        
+        <!-- --------------------- -->
+        <a class="logo">
+            <img src="/img/maletin.png" alt="maletin">
+        </a>
+    </header>
+    <main> 
+        <section class="leftMain">
+            <div class="block1">
+                <div class="aboutMe">
+                    <div class="photo">
+                        <img src="/img/profile.jpeg" alt="me">
+                        <h1>About me</h1>
+                    </div>
+                    <div class="text">
+                        <p>Passionate about continuing to learn and being able to improve my performance in the activities proposed to me.
+                            With knowledge of Front-End and some knowledge of Back-End, I also have experience as a UX/UI Designer, among others.</p>
+                    </div>
+                </div>
+                <div>
+                    
+                </div>
+            </div>
+        </section>
+        <section class="rightMain">
+            <div class="block2">
+                <h1>Skills</h1>
+                <picture>
+                    <a href="https://git-scm.com/" target="_blank">
+                        <img src="/img/git.png" alt="Git" title="Git">
+                    </a>
+                    <a href="https://github.com/" target="_blank">
+                        <img src="/img/personaje-github.png" alt="Github" title="GitHub">
+                    </a>
+                    <a href="https://www.figma.com/" target="_blank">
+                        <img src="/img/figma.png" alt="Figma" title="Figma">
+                    </a>
+                    <a href="https://www.mysql.com/" target="_blank">
+                        <img src="/img/MySQL.png" alt="MySQL" title="MySQL">
+                    </a>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">
+                        <img src="/img/html-5.png" alt="Html" title="HTML">
+                    </a>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">
+                        <img src="/img/css-3.png" alt="Css" title="CSS">
+                    </a>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
+                        <img src="/img/js.png" alt="JavaScript" title="JavaScript">
+                    </a>
+                    <a href="https://reactjs.org/" target="_blank">
+                        <img src="/img/react.png" alt="React.js" title="React">
+                    </a>
+                </picture>
+            </div>
+            <div class="block3">
+                <h1>My Projects</h1>
+                <a href="https://alquicancha-d6d01.web.app/" target="_blank" class="project-container">
+                    <img src="/img/alquicancha.PNG" alt="alquicancha" class="project-image">
+                    <div class="overlay">Alquicancha</div>
+                </a>
+            </div>
+        </section>
+        <div class="robot-container" id="eva">
+            <div class="speech-bubble">
+                Click Me
+            </div>
+            <img src="/img/robot.gif" alt="Robot Saludando" class="robot" id="eva">     
+        </div>
+        <div class="modalRobot" id="modalRobot">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>My Profile</h2>
+            <button class="linkedin-button" onclick="window.open('https://www.linkedin.com/in/franco-gramulla-bridarolli-802a20243', '_blank')">Ver mi perfil de LinkedIn</button>
+        </div>
+    </main>
+    <footer>
+        <section>
+            <div>
+                hola mundo
+            </div>
+            <div>
+                hola mundo
+            </div>
+        </section>
+    </footer>
+</body>
+</html>

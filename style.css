@@ -1,0 +1,462 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    box-sizing: border-box;
+    color: white;
+
+}
+
+/*--------------------------------- [Header] ----------------------------------- */
+
+header {
+    background-color: black;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    z-index: 1000;
+    transition: top 0.3s; 
+}
+
+header.fixed {
+    position: fixed;
+    border-bottom: 1px solid rgb(251, 251, 251);
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+
+header .title {
+    margin-left: 2%;
+    margin-top: 3%;
+    font-size: 20px;
+
+    height: 100px;
+    width: 40%;
+    height: fit-content;
+
+}
+header .title .name  {
+    color: rgb(255, 255, 255);
+    text-shadow: 5px 2px 4px rgb(255, 255, 255);
+    display: inline-block;
+    position: relative;
+}
+
+header .title .name {
+    display: inline-block; 
+}
+header .title .name span {
+    opacity: 0;
+    animation: appearingLetters 2s forwards; 
+}
+
+@keyframes appearingLetters {
+    from {
+            opacity: 0;
+            transform: translateY(25%);
+        }
+    to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+}
+
+/*--------------------------------- {Navbar} ------------------------------- */
+
+.navbar {
+    overflow: hidden;
+}
+
+.navbar a {
+    margin-top: 6%;
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    color: rgb(0, 98, 255);
+}
+
+
+/*--------------- (List More Styles) ------------------------------- */
+
+.dropdown {
+    margin-top: 6%;
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 20px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    border-radius: 15%;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #003cff;
+    color: rgb(255, 255, 255);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    border-radius: 15%;
+}
+
+.navbar .logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.navbar .menu {
+    float: right;
+}
+/*---------------------------------------------------------------- */
+
+/*------------- (Modal Contacts Styles) ---------------------------- */
+.modal {
+    display: none;
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    padding: 20px;
+    z-index: 2000;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    display: flex;
+    align-items: center;
+}
+
+.modal-content .image {
+    flex: 1;
+}
+
+.modal-content .buttons {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal-content .buttons button {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*---------------------------------------------------------------- */
+
+/*--------------------------------- {Navbar} ------------------------------- */
+
+header .logo{
+    cursor: pointer;
+}
+
+header .logo img{
+    margin-top: 10%;
+    width: 100%;
+    height: 70%;
+}
+
+header .logo img:hover{
+    animation: expand 1.2s forwards;
+}
+
+@keyframes expand {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.25);
+    }
+}
+
+/*--------------------------------- [Main] ----------------------------------- */
+
+body{
+    background-color: black;
+    position: relative;
+}
+
+main {
+
+    display: flex;
+    justify-content: space-between;
+    height: 100vmax;
+}
+
+.leftMain{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
+
+.rightMain{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.block1 {
+    margin: 4%;
+    width: 100%;
+    height: 25%;
+    border-radius: 5%;
+}
+
+.block1 .photo{
+    display: flex;
+    margin-top: 10%;
+}
+
+.block1 .photo img{
+    margin-top: 5%;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid white;
+}
+
+.block1 .photo h1{
+    text-align: center;
+    margin-left: 18%;
+    margin-top: 10%;
+    font-size: 50px;
+}
+
+.block1 .text{
+    margin-top: 7%;
+    font-size: 25px;
+}
+
+.block2{
+    width: 90%;
+    height: 25%;
+    margin-bottom: 15%;
+    margin-top: 15%;
+}
+
+.block2 h1{
+    text-align: center;
+    margin-top: 10%;
+    font-size: 50px;
+    text-decoration: underline;
+}
+
+.block2 picture{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15%;
+}
+
+.block2 picture img {
+    background-color: rgb(124, 1, 233);
+    border-radius: 25%;
+    border: 2px solid rgb(255, 255, 255);
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.block2 picture img:hover{
+    animation: expand 1.2s forwards;
+}
+
+.block3{
+    width: 75%;
+    height: 25%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.block3 img {
+    width: 100%;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.block3 img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.block3 h1 {
+    margin-top: 2%;
+    margin-bottom: 5%;
+}
+
+.project-container {
+    position: relative;
+    display: inline-block;
+}
+
+.project-image {
+    width: 50%;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.project-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0.7;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 10px;
+}
+
+.project-container:hover .overlay {
+    opacity: 1;
+}
+
+/*--------------------------------- {Robot} ------------------------------- */
+
+.robot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000; 
+    cursor: pointer; 
+    display: flex; 
+    align-items: center; 
+}
+
+.robot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 200px;
+    height: auto; 
+    z-index: 1000; 
+    cursor: pointer;
+}
+
+.speech-bubble {
+
+    background-color: transparent;
+    border: 1px solid rgb(134, 11, 134);
+    border-radius: 20%;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    margin-right: 130px;
+    margin-bottom: 100px;
+}   
+
+.modalRobot {
+    display: none;
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    padding: 20px;
+    z-index: 2000;
+}
+
+.modalRobot h2 {
+    color: black;
+    text-align: center;
+}
+
+.linkedin-button  {
+    background-color: #0077b5;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;}
+
+.linkedin-button:hover {
+    background-color: #005582;
+    transform: scale(1.1);
+    }
+
+.modalRobot .close {
+    color: black;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.modalRobot .close:hover{
+    color: red;
+}
+
+/*--------------------------------- [Footer] ----------------------------------- */
