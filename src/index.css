@@ -1,0 +1,55 @@
+:root {
+  --primary-color: rgb(56, 182, 255);
+  --primary-shadow-color: rgb(19, 116, 172);
+  --secondary-color: rgb(236, 114, 236);
+  --secondary-shadow-color: rgb(191, 68, 191);
+  --block-color: rgb(0, 221, 255);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  overflow-x: hidden; /* Desactiva el scroll horizontal */
+}
+
+/* Personalizar la barra de desplazamiento vertical */
+body::-webkit-scrollbar {
+  width: 20px; /* Ancho de la barra de desplazamiento */
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #1c1c22;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(330deg, #fce834, #fa4242); /* Gradiente en el thumb */
+  border-radius: 6px; /* Bordes redondeados */
+  border: 3px solid transparent; /* Borde transparente */
+  background-clip: content-box; /* Asegura que el color no se superponga al borde */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
+  background-image: linear-gradient(330deg, #fce83495, #fa424295); /* Mantén el gradiente al pasar el mouse */
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  body, html {
+    overflow-x: hidden; /* Oculta el desbordamiento horizontal */
+    width: 100%; /* Asegura que el ancho no exceda el 100% */
+  }
+}
+
+@media (max-width: 768px) {
+  body, html {
+    overflow-x: hidden; /* Oculta el desbordamiento horizontal */
+    width: 100%; /* Asegura que el ancho no exceda el 100% */
+  }
+}

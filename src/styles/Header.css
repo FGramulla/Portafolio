@@ -1,0 +1,228 @@
+/* Estilos generales del header */
+.header {
+  width: 100vw;
+  color: white;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  background-color: #1c1c22;
+  padding: 20px;
+  z-index: 1010;
+}
+
+/* Estilos para los enlaces */
+.header-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.hamburguer-menu{
+  align-items: center;
+  font-size: 30px;
+  margin-left:20px;
+  display: none;
+}
+
+.hamburguer-menu:active{
+  color: skyblue;
+  font-size: 30px;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Oculta el menú fuera de la pantalla */
+  width: 250px;
+  height: 100vh;
+  background-color: #2b2b37;
+  transition: left 0.3s ease-in-out;
+  z-index: 999;
+}
+
+.side-menu.open {
+  left: 0; /* Muestra el menú */
+}
+
+.side-menu-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  list-style: none;
+  padding: 20px;
+  margin: 0;
+}
+
+.side-menu-item {
+  margin-bottom: 15px;
+}
+
+.side-menu-link {
+  cursor: pointer;  
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.side-menu-link:hover {
+  background: linear-gradient(330deg, #fce834, #fa4242);
+  background-clip: text;
+  color: transparent;
+} 
+
+.close-side-header-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+
+.close-side-header-button:hover {
+  color: red; /* Cambia el color al pasar el mouse */
+}
+
+/* Estilos para la parte izquierda del header */
+.header-left {
+  width: 40%;
+}
+
+.header-title {
+  width: 200px;
+  transition: all 0.3s ease-in-out;
+}
+
+.header-title:hover {
+  cursor: pointer;
+  background: linear-gradient(330deg, #fce834, #fa4242);
+  background-clip: text;
+  color: transparent;
+}
+
+/* Estilos para la parte derecha del header */
+.header-right {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+}
+
+/* Estilos para la lista de navegación principal */
+.header-nav {
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+
+.header-nav-item {
+  color: white;
+  margin-left: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.header-nav-item:hover {
+  background: linear-gradient(330deg, #fce834, #fa4242);
+  background-clip: text;
+  color: transparent;
+  cursor: pointer;
+  transform: translateY(-5px);
+}
+
+/* Estilos para el contenedor de "Sections" */
+.sections-container {
+  position: relative;
+}
+
+.sections-trigger {
+  cursor: pointer;
+}
+
+/* Estilos para el menú desplegable de "Sections" */
+.sections-dropdown {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%; /* Coloca el menú debajo del botón */
+  left: 0;
+  background-color: #1c1c22; /* Mismo color de fondo que el header */
+  border: 1px solid #444;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+  opacity: 0; /* Inicialmente invisible */
+  visibility: hidden; /* Inicialmente oculto */
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.sections-container.active .sections-dropdown {
+  opacity: 1; /* Visible cuando está activo */
+  visibility: visible; /* Visible cuando está activo */
+}
+
+/* Estilos para la lista del menú desplegable */
+.sections-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sections-menu-item {
+  padding: 10px;
+  border-bottom: 1px solid #444;
+  transition: all 0.3s ease-in-out;
+}
+
+.sections-menu-item:last-child {
+  border-bottom: none;
+}
+
+.sections-link {
+  color: white;
+  text-decoration: none;
+  display: block;
+  transition: all 0.3s ease-in-out;
+}
+
+.sections-link:hover {
+  background: linear-gradient(330deg, #fce834, #fa4242);
+  background-clip: text;
+  color: transparent;
+  cursor: pointer;
+  transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+
+  .header{
+    justify-content: center;
+    align-items: center;
+    height: 12%;
+  }
+  
+  .header-left{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .header-right{
+    display: none;
+  }
+
+  .hamburguer-menu{
+    display: block;
+  }
+
+ .close-side-header-button{
+    font-size: 40px;
+  }
+
+}

@@ -1,0 +1,553 @@
+/* src/styles/Home.css */
+
+.home {
+  width: 100vw;
+  height: 100%; /* Aseguramos que la página sea suficientemente larga para hacer scroll */
+  background-color: #1c1c22;
+}
+
+.container-1 {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease-out; /* Animación para el movimiento */
+  height: 100vh;
+  background-color: transparent;
+  color: white;
+}
+
+.container-1 h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 5rem;
+  color: black;
+  text-shadow: 
+    -1px -1px 0 white,  
+     1px -1px 0 white,  
+    -1px  1px 0 white,  
+     1px  1px 0 white;
+  letter-spacing: 0.8rem; /* Ajusta este valor según tus preferencias */
+}
+/* Estilos para las líneas animadas */
+.animation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 5px; /* Grosor de las líneas */
+  background: linear-gradient(90deg, transparent, gold, transparent); /* Efecto de líneas doradas */
+  z-index: -1; /* Asegura que quede detrás del contenido */
+  pointer-events: none; /* No permite que los eventos del mouse interfieran con otros elementos */
+  transform: translateX(-50%) translateY(-50%);
+  transition: transform 0.1s ease-out; /* Transición para la deformación */
+  animation: moveLines 5s linear infinite; /* Mantiene la animación */
+}
+
+/* Animación que mueve las líneas de izquierda a derecha */
+@keyframes moveLines {
+  0% {
+    transform: translateX(-150%); /* Empieza fuera de la pantalla a la izquierda */
+  }
+  100% {
+    transform: translateX(100%); /* Se mueve hasta salir fuera de la pantalla a la derecha */
+  }
+}
+
+.container-2 {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  height: 100vh;
+  background-color: transparent;
+  color: white;
+  transition: transform 0.3s ease-out; /* Animación para el movimiento */
+}
+
+.container-2-img {
+  position: absolute;
+  top: 10px;
+  padding: 40px;
+  border-radius: 50%; /* Hace que el contenedor sea circular */
+  width: 400px;
+  height: 400px;
+  font-size: 15rem;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid black; /* Color inicial del borde */
+  background: linear-gradient(360deg, #fff59a, #ff6d6d);
+  transition: all 0.3s ease-in-out;
+}
+
+.container-2-img:hover {
+  cursor: pointer;
+  z-index: 999;
+}
+
+.container-2-img:hover  .container-2-info{
+  transform: translateX(-60px);
+}
+
+/* Estilos para el tooltip */
+.tooltip {
+  visibility: hidden;
+  background: linear-gradient(360deg, #fff59acf, #ff6d6dc9);
+  color: black;
+  text-align: center;
+  border-radius: 4px;
+  padding: 5px 10px;
+  position: absolute;
+  border-radius: 50%; /* Hace que el contenedor sea circular */
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: center;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  font-size: 5rem; /* Tamaño del texto */
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+}
+
+/* Mostrar el tooltip al hacer hover en el contenedor */
+.container-2-img:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+/* Asegúrate de que el contenedor de información se quede en la posición deseada después del clic */
+.container-2-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: auto;
+  background-color: #2b2b37;
+  width: 60%;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: left;
+  z-index: 1;
+  transition: transform 0.5s ease; /* Animación para la transición */
+}
+
+.container-2-info h1 {
+  font-size: 2rem; /* Reducimos el tamaño de la fuente para móviles */
+}
+
+.container-2-info h4 {
+  margin-top: 10px;
+  color: rgb(0, 157, 255);
+  font-size: 2rem; /* Reducimos el tamaño de la fuente para móviles */
+}
+
+.container-2-info p {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 1rem; /* Reducimos el tamaño de la fuente para móviles */
+  line-height: 1.5; /* Añade espacio entre las líneas */
+}
+
+.container-2-info .link {
+  text-decoration: underline;
+  background: linear-gradient(330deg, #fce834, #fa4242);
+  background-clip: text;
+  color: transparent;
+  font-size: 1.2rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.container-2-info .link:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+#cetified-tech-developer,
+#digital-house {
+  display: inline-block; /* Necesario para que transform funcione en elementos inline */
+  transform: scale(1); /* Tamaño inicial */
+  animation: pulse 2s infinite; /* Animación infinita */
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1); /* Tamaño normal */
+  }
+  50% {
+    transform: scale(1.05); /* Escala un 20% más grande */
+  }
+}
+
+.container-2-info button{
+  width: 200px;
+}
+
+/* Animación de entrada para el modal */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.icon-user-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(330deg, #fff59a32, #ff6d6d39);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+}
+
+.icon-user-modal {
+  color: white;
+  background: #1c1c22;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+  position: relative;
+}
+
+.icon-user-modal button {
+  margin-top: 20px;
+  color: white;
+  border: none;
+  background-color: transparent;
+  font-size: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.icon-user-modal button:hover {
+  color: red;
+}
+
+/* Estilos para el botón de cierre */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #666;
+  transition: color 0.2s ease;
+}
+
+.close-button:hover {
+  color: #333; /* Cambia el color al pasar el mouse */
+}
+
+.container-3 {
+  margin-top: 10%;
+  margin-bottom: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  background-color: transparent;
+  color: white;
+}
+
+.curriculum {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  background-color: #2b2b37;
+  width: 80%;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: left;
+  z-index: 1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+
+.curriculum.visible {
+  opacity: 1;
+}
+
+.curriculum .grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+  gap: 20px; /* Espacio entre las columnas */
+  width: 100%;
+}
+
+.curriculum .left-column,
+.curriculum .right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espacio entre las secciones */
+}
+
+.curriculum h1 {
+  background: linear-gradient(330deg,rgb(252, 232, 52),rgb(250, 66, 66));
+  background-clip: text;
+  color: transparent;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.curriculum h2 {
+  background: linear-gradient(330deg,rgb(252, 232, 52),rgb(250, 66, 66));
+  background-clip: text;
+  color: transparent;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.curriculum section {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #3a3a4a;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.curriculum ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  color: #ddd;
+}
+
+.curriculum p {
+  display: flex;
+  align-items: center; /* Alinea verticalmente la bandera con el texto */
+  gap: 10px; /* Espacio entre la bandera y el texto */
+}
+
+.curriculum p, 
+.curriculum li {
+  color: #ddd;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.curriculum button {
+  margin-top: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  line-height: 1.5;
+  background: linear-gradient(330deg, #fce83493 )
+}
+
+.container-4{
+  display: flex;
+  flex-direction: row; /* Por defecto, en desktop es una fila (2 columnas) */
+  justify-content: space-evenly;
+  align-items: flex-start; /* Alineamos los elementos al inicio */
+  padding: 20px; /* Añadimos padding para separar los elementos */
+  background-color: transparent;
+  color: white;
+}
+.container-4 .skills-section {
+  height: auto;
+  width: 45%;
+  background-color: #2b2b37;
+  color: white;
+  border-radius: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateX(-100px); /* Cambiamos para que venga de la izquierda */
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.container-4 .proyects-section {
+  width: 45%;
+  height: auto;
+  text-align: center;
+  background-color: #2b2b37;
+  color: white;
+  border-radius: 20px;
+  opacity: 0;
+  transform: translateX(100px); /* Cambiamos para que venga de la derecha */
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.proyects-section h1,
+.skills-section h1{
+  background: linear-gradient(330deg,rgb(252, 232, 52),rgb(250, 66, 66));
+  background-clip: text;
+  color: transparent;
+  margin-top: 20px;
+}
+
+/* Cuando las secciones son visibles, aparecen con una animación */
+.skills-section.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.proyects-section.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Media Queries para dispositivos móviles */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+  .home{
+    overflow-x: none;
+    width: 100vw;
+    max-width: 100vw;
+  }
+  
+  .animation {
+    height: 3px; /* Grosor más fino para móviles */
+    top: 50%; /* Ajustamos la posición vertical para móviles */
+  }
+}
+
+
+@media (max-width: 768px) {
+  /* Ajustes para el contenedor 1 */
+
+  .home{
+    overflow-x: none;
+    width: 100vw;
+    max-width: 100vw;
+  }
+
+  .container-1 h1 {
+    font-size: 2.5rem; /* Reducimos el tamaño de la fuente para móviles */
+    letter-spacing: 0.5rem; /* Menor espaciado para móviles */
+  }
+
+  .animation {
+    height: 3px; /* Grosor más fino para móviles */
+    top: 50%; /* Ajustamos la posición vertical para móviles */
+  }
+
+  /* Ajustamos la animación para móviles */
+  @keyframes moveLines {
+    0% {
+      transform: translateX(-200%); /* Empieza más fuera de la pantalla a la izquierda */
+    }
+    100% {
+      transform: translateX(0px); /* Se mueve hasta salir fuera de la pantalla a la derecha */
+    }
+  }
+
+
+  /* Ajustes para el contenedor 2 */
+  .container-2 {
+    flex-direction: column; /* Cambiamos a una columna para móviles */
+    height: auto; /* Altura automática para móviles */
+    padding: 10px; /* Reducimos el padding para móviles */
+  }
+
+  .container-2-img {
+    width: 150px; /* Tamaño más pequeño para móviles */
+    height: 150px;
+    font-size: 5rem; /* Tamaño más pequeño para móviles */
+    position: static; /* Eliminamos el posicionamiento absoluto */
+    margin-bottom: 20px; /* Espacio entre la imagen y el texto */
+  }
+
+  .container-2-info {
+    width: 100%; /* Ocupa todo el ancho en móviles */
+    padding: 15px; /* Reducimos el padding para móviles */
+    transform: none; /* Eliminamos la transformación en móviles */
+  }
+
+  .container-2-info h1 {
+    font-size: 1.8rem; /* Tamaño más pequeño para móviles */
+  }
+
+  .container-2-info h4 {
+    font-size: 1.5rem; /* Tamaño más pequeño para móviles */
+  }
+
+  .container-2-info p {
+    font-size: 1rem; /* Tamaño más pequeño para móviles */
+  }
+
+  /* Ajustes para el contenedor 3 */
+  .container-3 {
+    margin-top: 5%; /* Reducimos el margen superior para móviles */
+    margin-bottom: 100px; /* Reducimos el margen inferior para móviles */
+    padding: 10px; /* Reducimos el padding para móviles */
+  }
+
+  .curriculum {
+    width: 90%; /* Ocupa casi todo el ancho en móviles */
+    padding: 15px; /* Reducimos el padding para móviles */
+  }
+
+  .curriculum .grid-container {
+    grid-template-columns: 1fr; /* Una columna para móviles */
+    gap: 15px; /* Espacio entre las secciones */
+  }
+
+  .curriculum h1 {
+    font-size: 2rem; /* Tamaño más pequeño para móviles */
+  }
+
+  .curriculum h2 {
+    font-size: 1.5rem; /* Tamaño más pequeño para móviles */
+  }
+
+  .curriculum p,
+  .curriculum li {
+    font-size: 0.9rem; /* Tamaño más pequeño para móviles */
+  }
+
+  /* Ajustes para el contenedor 4 */
+  .container-4 {
+    flex-direction: column; /* Cambiamos a una columna para móviles */
+    align-items: center; /* Centramos los elementos */
+    padding: 10px; /* Reducimos el padding para móviles */
+  }
+
+  .container-4 .skills-section,
+  .container-4 .proyects-section {
+    width: 90%; /* Ocupa casi todo el ancho en móviles */
+    margin-bottom: 20px; /* Espacio entre las secciones */
+  }
+
+  .skills-section h1,
+  .proyects-section h1 {
+    font-size: 1.8rem; /* Tamaño más pequeño para móviles */
+  }
+
+  /* Ajustes para el modal */
+  .icon-user-modal {
+    width: 90%; /* Ocupa casi todo el ancho en móviles */
+    padding: 15px; /* Reducimos el padding para móviles */
+  }
+
+  .icon-user-modal button {
+    font-size: 2rem; /* Tamaño más pequeño para móviles */
+  }
+}
+
+  
