@@ -415,6 +415,10 @@
 
 @media (min-width: 768px) and (max-width: 1024px) {
   
+  .tooltip{
+    display: none;
+  }
+
   .home{
     overflow-x: none;
     width: 100vw;
@@ -431,6 +435,10 @@
 @media (max-width: 768px) {
   /* Ajustes para el contenedor 1 */
 
+.tooltip{
+  display: none;
+}
+  
   .home{
     overflow-x: none;
     width: 100vw;
