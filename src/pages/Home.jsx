@@ -5,6 +5,8 @@ import CardSkill from "../components/CardSkill.jsx";
 import CardPage from "../components/CardPage.jsx";
 import { Link } from "react-router-dom";
 import { FaUser, FaTimes } from "react-icons/fa";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, useGLTF } from "@react-three/drei";
 import { IoMdRose } from "react-icons/io";
 import FloatingChat from "../components/FloatingChat.jsx";
 
@@ -18,6 +20,7 @@ function Home() {
   const [typedSubText, setTypedSubText] = useState("");
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [isIconUserModalVisible, setIsIconUserModalVisible] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   const fullText = "Franco Gramulla Bridarolli";
   const fullSubText = "Front-End   Junior";
@@ -27,6 +30,37 @@ function Home() {
   const curriculumRef = useRef(null);
   const infoRef = useRef(null);
 
+
+  const handleMouseMove = (event) => {
+    const { clientX, clientY } = event;
+    const x = (clientX / window.innerWidth) * 2 - 1;
+    const y = -(clientY / window.innerHeight) * 2 + 1;
+    setMousePosition({ x, y });
+  };
+
+  function MobilePhoneModel({ mousePosition }) {
+    const { scene } = useGLTF("/models/robot_head.glb");
+    const modelRef = useRef();
+  
+    useEffect(() => {
+      if (modelRef.current) {
+        // Rotación inicial de 90 grados hacia la izquierda en el eje Y
+        modelRef.current.rotation.y = -Math.PI / 2;
+      }
+    }, []);
+  
+    useEffect(() => {
+      if (modelRef.current) {
+        modelRef.current.rotation.y = -Math.PI / 2 + mousePosition.x * 0.3;
+        modelRef.current.rotation.x = -mousePosition.y * 0.3;
+        
+      }
+    }, [mousePosition]);
+    
+  
+    return <primitive object={scene} ref={modelRef} position={[0, 0, 0]} scale={2} />;
+  }
+  
   // Detectar Scroll
   useEffect(() => {
     const handleScroll = () => {
@@ -117,7 +151,7 @@ function Home() {
   };
 
   return (
-    <div className="home">
+    <div className="home" onMouseMove={handleMouseMove}>
       <div
         className="container-1"
         style={{ transform: `translateY(${scrollPosition * -0.9}px)` }}
@@ -125,7 +159,20 @@ function Home() {
         <h1>MI PORTAFOLIO</h1>
         <div className="animation"></div>
       </div>
+      <div className="c-1">
+        <div className="c-1-modelRobot">
+          <Canvas
+            style={{ width: "100%", height: "100%" }}
+            camera={{ position: [0, 0, 5], fov: 50 }}
+          >
+            <ambientLight intensity={0.5} />
+            <directionalLight position={[2, 5, 2]} intensity={1} />
+            <MobilePhoneModel mousePosition={mousePosition} />
+            <OrbitControls enableZoom={false} enableRotate={false} />
 
+          </Canvas>
+        </div>
+      </div>
       <div
         className="container-2"
         style={{ transform: `translateY(${scrollPosition * 0}px)` }}

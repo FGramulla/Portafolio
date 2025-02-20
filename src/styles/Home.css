@@ -55,6 +55,22 @@
   }
 }
 
+.c-1{
+  display: flex;
+  justify-content: center;
+}
+
+.c-1-modelRobot{
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  border-radius: 25px;
+  height: 400px;
+  background-color: rgb(182, 128, 128);
+}
+
 .container-2 {
   width: 100%;
   display: flex;
@@ -282,7 +298,6 @@
   padding: 20px;
   border-radius: 10px;
   text-align: left;
-  z-index: 1;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   opacity: 0;
   transition: opacity 1s ease-out;
