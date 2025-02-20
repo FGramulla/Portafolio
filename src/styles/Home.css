@@ -480,6 +480,10 @@
     }
   }
 
+  .c-1-modelRobot{
+    display: none;
+  }
+
 
   /* Ajustes para el contenedor 2 */
   .container-2 {
