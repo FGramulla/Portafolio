@@ -103,7 +103,7 @@ function Header() {
       <div className="header-left">
         <h1 className="header-title">
           <Link to="/" rel="noopener noreferrer" className="header-link">
-            Mi Portafolio
+            My Portfolio
           </Link>
         </h1>
       </div>

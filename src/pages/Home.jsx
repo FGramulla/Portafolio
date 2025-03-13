@@ -4,10 +4,9 @@ import Button from "../components/Button";
 import CardSkill from "../components/CardSkill.jsx";
 import CardPage from "../components/CardPage.jsx";
 import { Link } from "react-router-dom";
-import { FaUser, FaTimes } from "react-icons/fa";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
-import { IoMdRose } from "react-icons/io";
+import { CiGift } from "react-icons/ci";
 import FloatingChat from "../components/FloatingChat.jsx";
 
 function Home() {
@@ -21,15 +20,19 @@ function Home() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [isIconUserModalVisible, setIsIconUserModalVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isRobotModalVisible, setIsRobotModalVisible] = useState(false);
+  const [typedRobotTitle, setTypedRobotTitle] = useState(""); // Nuevo estado para el título animado
+  const [typedRobotMessage, setTypedRobotMessage] = useState(""); // Nuevo estado para el mensaje animado
 
   const fullText = "Franco Gramulla Bridarolli";
   const fullSubText = "Front-End   Junior";
+  const robotTitleText = "Bienvenido/a"; // Texto completo para el título
+  const robotMessageText = "Bienvenido al portafolio de mi creador, disfruta de tu estadia"; // Texto completo para el mensaje
 
   const skillsRef = useRef(null);
   const projectsRef = useRef(null);
   const curriculumRef = useRef(null);
   const infoRef = useRef(null);
-
 
   const handleMouseMove = (event) => {
     const { clientX, clientY } = event;
@@ -41,26 +44,30 @@ function Home() {
   function MobilePhoneModel({ mousePosition }) {
     const { scene } = useGLTF("/models/robot_head.glb");
     const modelRef = useRef();
-  
+
     useEffect(() => {
       if (modelRef.current) {
-        // Rotación inicial de 90 grados hacia la izquierda en el eje Y
         modelRef.current.rotation.y = -Math.PI / 2;
       }
     }, []);
-  
+
     useEffect(() => {
       if (modelRef.current) {
         modelRef.current.rotation.y = -Math.PI / 2 + mousePosition.x * 0.3;
         modelRef.current.rotation.x = -mousePosition.y * 0.3;
-        
       }
     }, [mousePosition]);
-    
-  
-    return <primitive object={scene} ref={modelRef} position={[0, 0, 0]} scale={2} />;
+
+    return (
+      <primitive 
+        object={scene} 
+        ref={modelRef} 
+        position={[0, 0, 0]} 
+        scale={2} 
+      />
+    );
   }
-  
+
   // Detectar Scroll
   useEffect(() => {
     const handleScroll = () => {
@@ -86,7 +93,7 @@ function Home() {
           setIsInfoVisible(entry.isIntersecting);
         }
         if (entry.target === curriculumRef.current) {
-          setIsCurriculumVisible(entry.isIntersecting); // Actualiza la visibilidad del currículum
+          setIsCurriculumVisible(entry.isIntersecting);
         }
       });
     }, observerOptions);
@@ -94,17 +101,17 @@ function Home() {
     if (skillsRef.current) observer.observe(skillsRef.current);
     if (projectsRef.current) observer.observe(projectsRef.current);
     if (infoRef.current) observer.observe(infoRef.current);
-    if (curriculumRef.current) observer.observe(curriculumRef.current); // Observa el currículum
+    if (curriculumRef.current) observer.observe(curriculumRef.current);
 
     return () => {
       if (skillsRef.current) observer.unobserve(skillsRef.current);
       if (projectsRef.current) observer.unobserve(projectsRef.current);
       if (infoRef.current) observer.unobserve(infoRef.current);
-      if (curriculumRef.current) observer.unobserve(curriculumRef.current); // Deja de observar el currículum
+      if (curriculumRef.current) observer.unobserve(curriculumRef.current);
     };
   }, []);
 
-  // Efecto de máquina de escribir
+  // Efecto de máquina de escribir para el texto principal
   useEffect(() => {
     if (isInfoVisible && fullText && fullSubText) {
       setTypedText("");
@@ -138,6 +145,40 @@ function Home() {
     }
   }, [isInfoVisible, fullText, fullSubText]);
 
+  // Efecto de máquina de escribir para el modal del robot
+  useEffect(() => {
+    if (isRobotModalVisible) {
+      setTypedRobotTitle("");
+      setTypedRobotMessage("");
+
+      let currentTitle = "";
+      let currentMessage = "";
+
+      const typingIntervalTitle = setInterval(() => {
+        if (currentTitle.length < robotTitleText.length) {
+          currentTitle += robotTitleText[currentTitle.length];
+          setTypedRobotTitle(currentTitle);
+        } else {
+          clearInterval(typingIntervalTitle);
+        }
+      }, 100); // Velocidad de escritura para el título
+
+      const typingIntervalMessage = setInterval(() => {
+        if (currentMessage.length < robotMessageText.length) {
+          currentMessage += robotMessageText[currentMessage.length];
+          setTypedRobotMessage(currentMessage);
+        } else {
+          clearInterval(typingIntervalMessage);
+        }
+      }, 50); // Velocidad de escritura para el mensaje
+
+      return () => {
+        clearInterval(typingIntervalTitle);
+        clearInterval(typingIntervalMessage);
+      };
+    }
+  }, [isRobotModalVisible]);
+
   const handleMouseEnter = (index) => {
     setHoveredIndex(index);
   };
@@ -156,11 +197,11 @@ function Home() {
         className="container-1"
         style={{ transform: `translateY(${scrollPosition * -0.9}px)` }}
       >
-        <h1>MI PORTAFOLIO</h1>
+        <h1>My Portfolio</h1>
         <div className="animation"></div>
       </div>
       <div className="c-1">
-        <div className="c-1-modelRobot">
+        <div className="c-1-modelRobot" onClick={() => setIsRobotModalVisible(true)}>
           <Canvas
             style={{ width: "100%", height: "100%" }}
             camera={{ position: [0, 0, 5], fov: 50 }}
@@ -169,17 +210,26 @@ function Home() {
             <directionalLight position={[2, 5, 2]} intensity={1} />
             <MobilePhoneModel mousePosition={mousePosition} />
             <OrbitControls enableZoom={false} enableRotate={false} />
-
           </Canvas>
         </div>
       </div>
+
+      {isRobotModalVisible && (
+        <div className="robot-modal-overlay">
+          <div className="robot-modal">
+            <h1>{typedRobotTitle}</h1>
+            <p>{typedRobotMessage}</p>
+            <button onClick={() => setIsRobotModalVisible(false)}>¡Gracias!</button>
+          </div>
+        </div>
+      )}
       <div
         className="container-2"
         style={{ transform: `translateY(${scrollPosition * 0}px)` }}
         id="presentation"
       >
         <div className="container-2-img" onClick={toggleIconUserModal}>
-          <FaUser />
+          <img className="photo" src="/img/photo.jpeg" alt="Foto" />
           <span className="tooltip">ClickMe</span>
         </div>
         <div ref={infoRef} className="container-2-info">
@@ -416,9 +466,9 @@ function Home() {
       {isIconUserModalVisible && (
         <div className="icon-user-modal-overlay">
           <div className="icon-user-modal">
-            <h1>Gracias por clickerme, toma una rosa</h1>
+            <h1>Gracias por clickerme, toma un regalo</h1>
             <button onClick={toggleIconUserModal}>
-              <IoMdRose />
+              <CiGift />
             </button>
           </div>
         </div>

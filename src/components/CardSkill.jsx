@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaReact, FaHtml5, FaCss3Alt, FaJsSquare, FaDatabase, FaGitAlt } from 'react-icons/fa'; // Importar íconos
+import { FaReact, FaHtml5, FaCss3Alt, FaJsSquare, FaDatabase, FaGitAlt, FaGithub  } from 'react-icons/fa'; // Importar íconos
 import '../styles/CardSkill.css'; // Importa estilos específicos para las tarjetas
 
 const skills = [
@@ -38,6 +38,12 @@ const skills = [
     name: "Git",
     icon: <FaGitAlt />,
     link: "https://git-scm.com/", // Enlace para Git
+  },
+  {
+    id: 7,
+    name: "GitHub",
+    icon: <FaGithub />,
+    link: "https://github.com/", // Enlace para Git
   },
 ];
 

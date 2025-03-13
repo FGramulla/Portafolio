@@ -68,7 +68,54 @@
   width: 50%;
   border-radius: 25px;
   height: 400px;
-  background-color: rgb(182, 128, 128);
+  background: linear-gradient(360deg, #fff59a, #ff6d6d);
+  cursor: pointer; /* Cambia el cursor a un puntero para indicar que es clickeable */
+}
+
+.robot-modal-overlay {
+  position: absolute;
+  top: 50%;
+  left: -30%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.robot-modal {
+  width: 300px;
+  height: 200px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.robot-modal h1,
+.robot-modal p {
+  font-family: "Doto", sans-serif !important;
+  font-optical-sizing: auto !important;
+  font-weight: 1000 !important;
+  font-style: normal !important;
+  font-variation-settings: "ROND" 0 !important;
+}
+
+.robot-modal button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: rgb(0, 213, 0);
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.robot-modal button:hover {
+  color: white;
+  background-color: rgb(0, 149, 0);
 }
 
 .container-2 {
@@ -85,35 +132,55 @@
 }
 
 .container-2-img {
-  position: absolute;
-  top: 10px;
-  padding: 40px;
-  border-radius: 50%; /* Hace que el contenedor sea circular */
+  padding: 0; /* Elimina el padding para evitar espacios no deseados */
+  border-radius: 50%;
   width: 400px;
   height: 400px;
   font-size: 15rem;
+  box-shadow: 0px 0px 100px white;
   color: black;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 3px solid black; /* Color inicial del borde */
   background: linear-gradient(360deg, #fff59a, #ff6d6d);
   transition: all 0.3s ease-in-out;
+  z-index: 999;
+  overflow: hidden; /* Asegura que la imagen no se salga del borde circular */
+  animation: pulse 2s infinite ease-in-out; /* Agregamos la animación */
 }
-
 .container-2-img:hover {
   cursor: pointer;
-  z-index: 999;
 }
 
 .container-2-img:hover  .container-2-info{
   transform: translateX(-60px);
 }
 
+.container-2-img .photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover; /* Hace que la imagen cubra todo el círculo sin distorsionarse */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.574);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 109, 109, 0.8);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(255, 109, 109, 0.5);
+  }
+}
+
 /* Estilos para el tooltip */
 .tooltip {
   visibility: hidden;
-  background: linear-gradient(360deg, #fff59acf, #ff6d6dc9);
   color: black;
   text-align: center;
   border-radius: 4px;
@@ -219,6 +286,7 @@
   }
 }
 
+
 .icon-user-modal-overlay {
   position: fixed;
   top: 0;
@@ -253,6 +321,7 @@
 }
 
 .icon-user-modal button:hover {
+  transform: scale(1.2);
   color: red;
 }
 
@@ -483,7 +552,6 @@
   .c-1-modelRobot{
     display: none;
   }
-
 
   /* Ajustes para el contenedor 2 */
   .container-2 {
