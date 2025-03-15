@@ -40,3 +40,17 @@
     color: #333;
     transition: all 0.3s ease-in-out;
   }
+
+  .dark-mode {
+
+  }
+
+  .dark-mode  .skill-card {
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+  }
+  
+  .dark-mode .skill-card:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(360deg, #8d8d8d8b, #60953c79);
+    box-shadow: 0px 0px 30px #60953c79;
+  }

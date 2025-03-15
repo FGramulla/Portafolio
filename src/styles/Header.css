@@ -91,6 +91,9 @@
 
 /* Estilos para la parte izquierda del header */
 .header-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 40%;
 }
 
@@ -104,6 +107,48 @@
   background: linear-gradient(330deg, #fce834, #fa4242);
   background-clip: text;
   color: transparent;
+}
+
+.moon-container {
+  padding: 5px;
+  width: 100px;
+  border-radius: 25px;
+  border: 1px solid rgb(0, 0, 0);
+  box-shadow: inset 0px 0px 20px rgb(0, 0, 0);
+  background-color: var(--hover-list);
+}
+
+.moon-container .moon,
+.moon-container .sun{
+  padding: 2px;
+  font-size: 30px;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+}
+
+.moon-container .moon{
+  background-color: white;
+}
+
+.moon-container .sun{
+  background-color: black;
+}
+
+.moon-container .moon:hover,
+.moon-container .sun:hover{
+  transform: scale(1.3);
+}
+
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.dark-mode-toggle.active {
+  transform: translateX(50px) rotate(60deg);
 }
 
 /* Estilos para la parte derecha del header */
@@ -197,6 +242,61 @@
   color: transparent;
   cursor: pointer;
   transform: translateY(-5px);
+}
+
+/* Estilos generales del header */
+.dark-mode .header {
+  color: black;
+  background-color: rgb(196, 196, 196);
+}
+
+.dark-mode .hamburguer-menu:active{
+  color: black;
+}
+
+
+.dark-mode .side-menu {
+  background-color: rgb(196, 196, 196);
+}
+
+.dark-mode .side-menu-link,
+.dark-mode .close-side-header-button,
+.dark-mode .header-nav-item,
+.dark-mode .sections-link{
+  color: black; 
+}
+
+.dark-mode .side-menu-link:hover {
+  background: linear-gradient(360deg, #8d8d8d, #60953c);
+}
+
+.dark-mode .header-title:hover{
+  background: linear-gradient(360deg, #8d8d8d, #60953c);
+  background-clip: text;
+  color: transparent;
+}
+
+.dark-mode .header-nav-item:hover {
+  background: linear-gradient(360deg, #8d8d8d, #60953c);
+  background-clip: text;
+  color: transparent;
+}
+
+/* Estilos para el menú desplegable de "Sections" */
+.dark-mode .sections-dropdown {
+  background-color: rgb(196, 196, 196); /* Mismo color de fondo que el header */
+  border: 1px solid black;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+}
+/* Estilos para la lista del menú desplegable */
+.dark-mode .sections-menu-item {
+  border-bottom: 1px solid black;
+}
+
+.dark-mode .sections-link:hover {
+  background: linear-gradient(360deg, #8d8d8d, #60953c);
+  background-clip: text;
+  color: transparent;
 }
 
 @media (max-width: 768px) {

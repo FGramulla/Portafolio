@@ -495,6 +495,90 @@
   transform: translateX(0);
 }
 
+.dark-mode .home{
+  background-color: var(--light);
+}
+
+.dark-mode .animation,
+.dark-mode .c-1-modelRobot {
+  background: linear-gradient(360deg, #8d8d8d, #60953c);
+}
+
+.dark-mode .container-1 h1 {
+  color: white;
+  text-shadow: 
+    -1px -1px 0 black,  
+     1px -1px 0 black,  
+    -1px  1px 0 black,  
+     1px  1px 0 black;
+  letter-spacing: 0.8rem; /* Ajusta este valor según tus preferencias */
+}
+
+.dark-mode .container-2-img  {
+  box-shadow: 0px 0px 100px black;
+}
+
+.dark-mode .container-2-info {
+  border: 1px solid black;
+  background-color: rgb(196, 196, 196);
+  color: black;
+}
+
+.dark-mode  .container-2-info .link:hover {
+  color: black;
+}
+
+.dark-mode .icon-user-modal-overlay {
+  background: linear-gradient(360deg, #8d8d8d8b, #60953c79);
+}
+
+.dark-mode .curriculum {
+  background-color: rgb(196, 196, 196);
+  color: black;
+}
+
+.dark-mode .curriculum h1 {
+  background: linear-gradient(360deg, #8d8d8d, #60953c);
+  background-clip: text;
+  color: transparent;
+}
+
+.dark-mode .curriculum h2,
+.dark-mode .proyects-section h1,
+.dark-mode .skills-section h1{
+  background: linear-gradient(360deg, #8d8d8d, #60953c);
+  background-clip: text;
+  color: transparent;
+}
+
+.dark-mode .curriculum section {
+  background-color: rgb(196, 196, 196);
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.789);
+}
+
+.dark-mode .curriculum ul {
+  color: black;
+}
+
+.dark-mode  .curriculum p, 
+.dark-mode  .curriculum li {
+  color: black;
+}
+
+.dark-mode .curriculum button {
+  background: linear-gradient(360deg, #8d8d8d, #60953c);
+}
+
+.dark-mode .container-4{
+  color: black;
+}
+
+.dark-mode .container-4 .skills-section,
+.dark-mode .container-4 .proyects-section {
+  background-color: rgb(196, 196, 196);
+  color: black;
+}
+
 /* Media Queries para dispositivos móviles */
 
 @media (min-width: 768px) and (max-width: 1024px) {

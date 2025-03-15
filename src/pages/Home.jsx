@@ -5,6 +5,7 @@ import CardSkill from "../components/CardSkill.jsx";
 import CardPage from "../components/CardPage.jsx";
 import { Link } from "react-router-dom";
 import { Canvas } from "@react-three/fiber";
+import { useDarkMode } from "../context/DarkModeContext";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import { CiGift } from "react-icons/ci";
 import FloatingChat from "../components/FloatingChat.jsx";
@@ -21,13 +22,14 @@ function Home() {
   const [isIconUserModalVisible, setIsIconUserModalVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isRobotModalVisible, setIsRobotModalVisible] = useState(false);
-  const [typedRobotTitle, setTypedRobotTitle] = useState(""); // Nuevo estado para el título animado
-  const [typedRobotMessage, setTypedRobotMessage] = useState(""); // Nuevo estado para el mensaje animado
+  const [typedRobotTitle, setTypedRobotTitle] = useState("");
+  const [typedRobotMessage, setTypedRobotMessage] = useState("");
+  const { darkMode, toggleDarkMode } = useDarkMode(); // Usar contexto
 
   const fullText = "Franco Gramulla Bridarolli";
-  const fullSubText = "Front-End   Junior";
-  const robotTitleText = "Bienvenido/a"; // Texto completo para el título
-  const robotMessageText = "Bienvenido al portafolio de mi creador, disfruta de tu estadia"; // Texto completo para el mensaje
+  const fullSubText = "Front-End Junior";
+  const robotTitleText = "Welcome";
+  const robotMessageText = "Welcome to my creator's portfolio, enjoy your stay";
 
   const skillsRef = useRef(null);
   const projectsRef = useRef(null);
@@ -59,16 +61,10 @@ function Home() {
     }, [mousePosition]);
 
     return (
-      <primitive 
-        object={scene} 
-        ref={modelRef} 
-        position={[0, 0, 0]} 
-        scale={2} 
-      />
+      <primitive object={scene} ref={modelRef} position={[0, 0, 0]} scale={2} />
     );
   }
 
-  // Detectar Scroll
   useEffect(() => {
     const handleScroll = () => {
       setScrollPosition(window.scrollY);
@@ -77,7 +73,6 @@ function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Intersection Observer para detectar si las secciones están visibles
   useEffect(() => {
     const observerOptions = { threshold: 0.3 };
 
@@ -111,7 +106,6 @@ function Home() {
     };
   }, []);
 
-  // Efecto de máquina de escribir para el texto principal
   useEffect(() => {
     if (isInfoVisible && fullText && fullSubText) {
       setTypedText("");
@@ -145,7 +139,6 @@ function Home() {
     }
   }, [isInfoVisible, fullText, fullSubText]);
 
-  // Efecto de máquina de escribir para el modal del robot
   useEffect(() => {
     if (isRobotModalVisible) {
       setTypedRobotTitle("");
@@ -161,7 +154,7 @@ function Home() {
         } else {
           clearInterval(typingIntervalTitle);
         }
-      }, 100); // Velocidad de escritura para el título
+      }, 100);
 
       const typingIntervalMessage = setInterval(() => {
         if (currentMessage.length < robotMessageText.length) {
@@ -170,7 +163,7 @@ function Home() {
         } else {
           clearInterval(typingIntervalMessage);
         }
-      }, 50); // Velocidad de escritura para el mensaje
+      }, 50);
 
       return () => {
         clearInterval(typingIntervalTitle);
@@ -201,7 +194,10 @@ function Home() {
         <div className="animation"></div>
       </div>
       <div className="c-1">
-        <div className="c-1-modelRobot" onClick={() => setIsRobotModalVisible(true)}>
+        <div
+          className="c-1-modelRobot"
+          onClick={() => setIsRobotModalVisible(true)}
+        >
           <Canvas
             style={{ width: "100%", height: "100%" }}
             camera={{ position: [0, 0, 5], fov: 50 }}
@@ -219,7 +215,9 @@ function Home() {
           <div className="robot-modal">
             <h1>{typedRobotTitle}</h1>
             <p>{typedRobotMessage}</p>
-            <button onClick={() => setIsRobotModalVisible(false)}>¡Gracias!</button>
+            <button onClick={() => setIsRobotModalVisible(false)}>
+              Thank you!
+            </button>
           </div>
         </div>
       )}
@@ -229,7 +227,7 @@ function Home() {
         id="presentation"
       >
         <div className="container-2-img" onClick={toggleIconUserModal}>
-          <img className="photo" src="/img/photo.jpeg" alt="Foto" />
+          <img className="photo" src="/img/photo.jpeg" alt="Photo" />
           <span className="tooltip">ClickMe</span>
         </div>
         <div ref={infoRef} className="container-2-info">
@@ -258,8 +256,8 @@ function Home() {
             ))}
           </h4>
           <p>
-            Bienvenido a mi portafolio. Soy un desarrollador front-end junior
-            que estudió{" "}
+            Welcome to my portfolio. I am a junior front-end developer who
+            studied{" "}
             <Link
               to="https://www.digitalhouse.com/ar/landing/membresiactd-ar?utm_source=Google&utm_medium=paidsearch&utm_campaign=AlwaysOn&utm_content=membresia-search_membresia-none-kws_todas-productapp-membresia-ar&gad_source=1&gclid=Cj0KCQiAkoe9BhDYARIsAH85cDP1U53LQ0j8eJgE39SeIbdtyHs5Azy22rwxMXBvtZLfGXwLfC5tEJUaArf9EALw_wcB"
               className="link"
@@ -267,7 +265,7 @@ function Home() {
             >
               Certified Tech Developer
             </Link>{" "}
-            en{" "}
+            at{" "}
             <Link
               to="https://www.digitalhouse.com/ar"
               className="link"
@@ -275,19 +273,18 @@ function Home() {
             >
               Digital House
             </Link>
-            . Apasionado por crear experiencias visuales atractivas y
-            funcionales. Con experiencia en{" "}
+            . Passionate about creating attractive and functional visual
+            experiences. With experience in{" "}
             <b style={{ color: "crimson" }}>HTML</b>,{" "}
             <b style={{ color: "skyblue" }}>CSS</b>,{" "}
-            <b style={{ color: "yellow" }}>JavaScript</b> y frameworks como{" "}
-            <b style={{ color: "blue" }}>React</b>, me esfuerzo por construir
-            aplicaciones rápidas y eficientes, siempre buscando soluciones
-            innovadoras.
+            <b style={{ color: "yellow" }}>JavaScript</b>, and frameworks like{" "}
+            <b style={{ color: "blue" }}>React</b>, I strive to build fast and
+            efficient applications, always seeking innovative solutions.
           </p>
           <p className="text"></p>
           <Button
-            text="Contáctame"
-            onClick={() => console.log("Botón clickeado")}
+            text="Contact Me"
+            onClick={() => console.log("Button clicked")}
           />
         </div>
       </div>
@@ -299,11 +296,8 @@ function Home() {
         >
           <h1>About Me</h1>
 
-          {/* Contenedor de dos columnas */}
           <div className="grid-container">
-            {/* Columna izquierda */}
             <div className="left-column">
-              {/* Sección de Información Personal */}
               <section>
                 <h2>FRANCO GRAMULLA BRIDAROLLI</h2>
                 <p>
@@ -323,7 +317,6 @@ function Home() {
                 </p>
               </section>
 
-              {/* Sección de Contacto */}
               <section>
                 <h2>CONTACT INFORMATION</h2>
                 <p>
@@ -336,7 +329,6 @@ function Home() {
                 </p>
               </section>
 
-              {/* Sección de Idiomas */}
               <section>
                 <h2>LANGUAGE</h2>
                 <p>
@@ -357,7 +349,6 @@ function Home() {
                 </p>
               </section>
 
-              {/* Sección de Resumen (SUMMARY) */}
               <section>
                 <h2>SUMMARY</h2>
                 <p>
@@ -369,9 +360,7 @@ function Home() {
               </section>
             </div>
 
-            {/* Columna derecha */}
             <div className="right-column">
-              {/* Sección de Educación */}
               <section>
                 <h2>EDUCATION</h2>
                 <p>
@@ -393,7 +382,6 @@ function Home() {
                 </p>
               </section>
 
-              {/* Sección de Experiencia Laboral */}
               <section>
                 <h2>WORK EXPERIENCE</h2>
                 <p>
@@ -411,7 +399,6 @@ function Home() {
                 </ul>
               </section>
 
-              {/* Sección de Habilidades Principales */}
               <section>
                 <h2>MAIN SKILLS</h2>
                 <ul>
@@ -429,7 +416,7 @@ function Home() {
             </div>
           </div>
           <Button
-            text="Mi Curriculum"
+            text="My Resume"
             target="_blank"
             onClick={() =>
               window.open(
@@ -446,7 +433,7 @@ function Home() {
           className={`skills-section ${isSkillsVisible ? "visible" : ""}`}
           id="skills"
         >
-          <h1>Mis Habilidades</h1>
+          <h1>My Skills</h1>
           <CardSkill />
         </div>
 
@@ -455,18 +442,17 @@ function Home() {
           className={`proyects-section ${isProjectsVisible ? "visible" : ""}`}
           id="projects"
         >
-          <h1>Mis Proyectos</h1>
+          <h1>My Projects</h1>
           <CardPage />
         </div>
       </div>
 
-      {/* Globo flotante */}
       <FloatingChat />
 
       {isIconUserModalVisible && (
         <div className="icon-user-modal-overlay">
           <div className="icon-user-modal">
-            <h1>Gracias por clickerme, toma un regalo</h1>
+            <h1>Thanks for clicking me, here's a gift</h1>
             <button onClick={toggleIconUserModal}>
               <CiGift />
             </button>

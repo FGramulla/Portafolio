@@ -2,7 +2,9 @@ import React, { useState, useRef, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { SectionContext } from "../context/SectionContext.jsx";
 import "../styles/Header.css";
-import {IoCloseCircleOutline  } from 'react-icons/io5';
+import { IoCloseCircleOutline } from "react-icons/io5";
+import { useDarkMode } from "../context/DarkModeContext";
+import { FaMoon, FaSun } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 function Header() {
@@ -10,6 +12,7 @@ function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Estado para controlar el menú lateral
   const sectionsRef = useRef(null);
   const { scrollToSection } = useContext(SectionContext);
+  const { darkMode, toggleDarkMode } = useDarkMode(); // Usar el contexto
 
   const toggleSectionsMenu = () => {
     setIsSectionsMenuVisible(!isSectionsMenuVisible);
@@ -45,7 +48,10 @@ function Header() {
       </div>
 
       <div className={`side-menu ${isMenuOpen ? "open" : ""}`}>
-        <button className="close-side-header-button" onClick={() => toggleMenu(false)}>
+        <button
+          className="close-side-header-button"
+          onClick={() => toggleMenu(false)}
+        >
           <IoCloseCircleOutline />
         </button>
         <ul className="side-menu-list">
@@ -106,6 +112,24 @@ function Header() {
             My Portfolio
           </Link>
         </h1>
+        <div className="moon-container">
+          <button
+            className={`dark-mode-toggle ${darkMode ? "active" : ""}`}
+            onClick={toggleDarkMode}
+          >
+            {darkMode ? (
+              <FaMoon
+                style={{ color: "black", background: "white" }}
+                className="moon"
+              />
+            ) : (
+              <FaSun
+                style={{ color: "white", background: "black" }}
+                className="sun"
+              />
+            )}
+          </button>
+        </div>
       </div>
       <div className="header-right">
         <ul className="header-nav">
