@@ -118,15 +118,15 @@ function Header() {
             onClick={toggleDarkMode}
           >
             {darkMode ? (
-              <FaMoon
-                style={{ color: "black", background: "white" }}
-                className="moon"
-              />
+                            <FaSun
+                            style={{ color: "white", background: "black" }}
+                            className="sun"
+                          />
             ) : (
-              <FaSun
-                style={{ color: "white", background: "black" }}
-                className="sun"
-              />
+              <FaMoon
+              style={{ color: "black", background: "white" }}
+              className="moon"
+            />
             )}
           </button>
         </div>

@@ -193,34 +193,6 @@ function Home() {
         <h1>My Portfolio</h1>
         <div className="animation"></div>
       </div>
-      <div className="c-1">
-        <div
-          className="c-1-modelRobot"
-          onClick={() => setIsRobotModalVisible(true)}
-        >
-          <Canvas
-            style={{ width: "100%", height: "100%" }}
-            camera={{ position: [0, 0, 5], fov: 50 }}
-          >
-            <ambientLight intensity={0.5} />
-            <directionalLight position={[2, 5, 2]} intensity={1} />
-            <MobilePhoneModel mousePosition={mousePosition} />
-            <OrbitControls enableZoom={false} enableRotate={false} />
-          </Canvas>
-        </div>
-      </div>
-
-      {isRobotModalVisible && (
-        <div className="robot-modal-overlay">
-          <div className="robot-modal">
-            <h1>{typedRobotTitle}</h1>
-            <p>{typedRobotMessage}</p>
-            <button onClick={() => setIsRobotModalVisible(false)}>
-              Thank you!
-            </button>
-          </div>
-        </div>
-      )}
       <div
         className="container-2"
         style={{ transform: `translateY(${scrollPosition * 0}px)` }}
@@ -228,7 +200,6 @@ function Home() {
       >
         <div className="container-2-img" onClick={toggleIconUserModal}>
           <img className="photo" src="/img/photo.jpeg" alt="Photo" />
-          <span className="tooltip">ClickMe</span>
         </div>
         <div ref={infoRef} className="container-2-info">
           <h1>{typedText}</h1>
@@ -364,21 +335,21 @@ function Home() {
               <section>
                 <h2>EDUCATION</h2>
                 <p>
-                  <strong>Coder House:</strong> Ux/UI Designer |{" "}
-                  <b style={{ color: "skyblue" }}>In Progress</b>
+                  <strong>Coder House:</strong> Advanced Ux/Ui Design | Ux/Ui Design | Photoshop & Illustrator |{" "}
+                  <b className="date">2025</b>
                 </p>
                 <p>
                   <strong>Digital House:</strong> Certified Tech Developer |
-                  <b style={{ color: "skyblue" }}>2023</b>
+                  <b className="date">2023</b>
                 </p>
                 <p>
                   <strong>National Technological University:</strong> English
                   Course (Teens 5 B1 (Plus)) |{" "}
-                  <b style={{ color: "skyblue" }}>2021</b>
+                  <b className="date">2021</b>
                 </p>
                 <p>
                   <strong>Institute “La Consolata”:</strong> Bachelor of Natural
-                  Sciences | <b style={{ color: "skyblue" }}>2021</b>
+                  Sciences | <b className="date">2021</b>
                 </p>
               </section>
 
@@ -389,7 +360,7 @@ function Home() {
                 </p>
                 <p>
                   Rio Cuarto, Cordoba | June - August{" "}
-                  <b style={{ color: "skyblue" }}>2023</b>
+                  <b className="date">2023</b>
                 </p>
                 <ul>
                   <li>Front-End Developer</li>
@@ -448,17 +419,6 @@ function Home() {
       </div>
 
       <FloatingChat />
-
-      {isIconUserModalVisible && (
-        <div className="icon-user-modal-overlay">
-          <div className="icon-user-modal">
-            <h1>Thanks for clicking me, here's a gift</h1>
-            <button onClick={toggleIconUserModal}>
-              <CiGift />
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

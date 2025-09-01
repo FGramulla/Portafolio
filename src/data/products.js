@@ -38,27 +38,27 @@ const products = [
   },
   {
     id: 4,
-    name: "Coming Soon",
-    description: "Coming Soon",
+    name: "Pokedex",
+    description: "I developed a web application using React that functions as a Pokédex, fetching and displaying Pokémon data through the PokéAPI.",
     images: [
-      "https://via.placeholder.com/600x400?text=Image+1",
-      "https://via.placeholder.com/600x400?text=Image+2",
-      "https://via.placeholder.com/600x400?text=Image+3"
+      "/img/pokedex1.png",
+      "/img/pokedex2.png",
+      "../img/pokedex3.png"
     ],
-    link: "",
-    boxShadow: "green",
+    link: "https://pokedex-fg-65pt.vercel.app/",
+    boxShadow: "0px 0px 15px rgba(235, 6, 6, 1)",
   },
   {
     id: 5,
-    name: "Coming Soon",
-    description: "Coming Soon",
+    name: "Marketing agency model",
+    description: "The website is a model page for a digital marketing agency with a modern, intuitive design, built with React + Vite, and also featuring a 3D model.",
     images: [
-      "https://via.placeholder.com/600x400?text=Image+1",
-      "https://via.placeholder.com/600x400?text=Image+2",
-      "https://via.placeholder.com/600x400?text=Image+3"
+      "/img/agenciaMarketing1.png",
+     "/img/agenciaMarketing2.png",
+     "/img/agenciaMarketing3.png",
     ],
-    link: "",
-    boxShadow: "green",
+    link: "https://agencia-marketing-eight.vercel.app/",
+    boxShadow: "0px 0px 15px rgba(162, 0, 255, 1)",
   },
   {
     id: 6,
