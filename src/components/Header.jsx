@@ -57,7 +57,7 @@ function Header() {
         <ul className="side-menu-list">
           <li className="side-menu-item">
             <Link
-              to="https://github.com"
+              to="https://github.com/FGramulla"
               target="_blank"
               rel="noopener noreferrer"
               className="side-menu-link"
@@ -67,7 +67,7 @@ function Header() {
           </li>
           <li className="side-menu-item">
             <Link
-              to="https://linkedin.com"
+              to="https://www.linkedin.com/in/franco-gramulla-bridarolli-802a20243/"
               target="_blank"
               rel="noopener noreferrer"
               className="side-menu-link"
@@ -77,7 +77,7 @@ function Header() {
           </li>
           <li className="side-menu-item">
             <Link
-              to="https://instagram.com"
+              to="https://www.instagram.com/franngramulla/"
               target="_blank"
               rel="noopener noreferrer"
               className="side-menu-link"
