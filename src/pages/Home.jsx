@@ -335,7 +335,8 @@ function Home() {
               <section>
                 <h2>EDUCATION</h2>
                 <p>
-                  <strong>Coder House:</strong> Advanced Ux/Ui Design | Ux/Ui Design | Photoshop & Illustrator |{" "}
+                  <strong>Coder House:</strong> Advanced Ux/Ui Design | Ux/Ui
+                  Design | Photoshop & Illustrator |{" "}
                   <b className="date">2025</b>
                 </p>
                 <p>
@@ -344,8 +345,7 @@ function Home() {
                 </p>
                 <p>
                   <strong>National Technological University:</strong> English
-                  Course (Teens 5 B1 (Plus)) |{" "}
-                  <b className="date">2021</b>
+                  Course (Teens 5 B1 (Plus)) | <b className="date">2021</b>
                 </p>
                 <p>
                   <strong>Institute “La Consolata”:</strong> Bachelor of Natural
@@ -391,7 +391,7 @@ function Home() {
             target="_blank"
             onClick={() =>
               window.open(
-                "https://drive.google.com/file/d/1cWZxjE1kVwJpamBaZK5T3Anin9b646fF/view?usp=sharing",
+                "https://drive.google.com/file/d/1Z0bkCTBVr4UyiW69mjC7gM276EULj9ip/view?usp=sharing",
                 "_blank"
               )
             }
