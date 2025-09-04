@@ -22,12 +22,9 @@ function Home() {
   const [isIconUserModalVisible, setIsIconUserModalVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isRobotModalVisible, setIsRobotModalVisible] = useState(false);
-  const [typedRobotTitle, setTypedRobotTitle] = useState("");
-  const [typedRobotMessage, setTypedRobotMessage] = useState("");
-  const { darkMode, toggleDarkMode } = useDarkMode(); // Usar contexto
 
   const fullText = "Franco Gramulla Bridarolli";
-  const fullSubText = "Front-End Junior";
+  const fullSubText = "Front-End Developer";
   const robotTitleText = "Welcome";
   const robotMessageText = "Welcome to my creator's portfolio, enjoy your stay";
 
